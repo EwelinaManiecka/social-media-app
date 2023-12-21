@@ -10,6 +10,7 @@ const App = () => {
 
   return (
     <main className='flex h-screen'>
+      <div>Function?</div>
       <Routes>
         {/* public routes */}
         <Route element={<AuthLayout />}>
