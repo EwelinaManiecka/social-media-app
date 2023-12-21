@@ -3,6 +3,8 @@ import './globals.css';
 import SigninForm from './_auth/forms/SigninForm';
 import SignupForm from './_auth/forms/SignupForm';
 import {Home} from './_root/pages';
+import AuthLayout from './_auth/AuthLayout';
+import RootLayout from './_root/RootLayout';
 
 const App = () => {
 
@@ -10,11 +12,14 @@ const App = () => {
     <main className='flex h-screen'>
       <Routes>
         {/* public routes */}
-        <Route path="/sign-in" element={<SigninForm />} />
-        <Route path="/sign-in" element={<SignupForm />} />
-
+        <Route element={<AuthLayout />}>
+          <Route path="/social-media-app/sign-in" element={<SigninForm />} />
+          <Route path="/social-media-app/sign-up" element={<SignupForm />} />
+        </Route>
         {/* {private routes} */}
-        <Route index element={<Home />} />
+        <Route element={<RootLayout />} >
+          <Route index element={<Home />} />
+        </Route>
       </Routes>
     </main>
   )
